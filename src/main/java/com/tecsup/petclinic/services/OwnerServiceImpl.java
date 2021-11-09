@@ -1,4 +1,5 @@
 package com.tecsup.petclinic.services;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tecsup.petclinic.entities.Owner;
-import com.tecsup.petclinic.exception.OwnerNotFoundException;
 import com.tecsup.petclinic.repositories.OwnerRepository;
+import com.tecsup.petclinic.exception.OwnerNotFoundException;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {
@@ -49,17 +50,16 @@ public class OwnerServiceImpl implements OwnerService {
 	}
 
 	@Override
-	public List<Owner> findByFirstName(String firstName) {
+	public List<Owner> findByFirtName(String firstName) {
 		
 		List<Owner> owners = ownerRepository.findByFirstName(firstName);
-		//preguntar al profesor por esta linea
 		owners.stream().forEach(owner -> logger.info("" + owner));
 		
 		return owners;
 	}
 
 	@Override
-	public Iterable<Owner> findAlld() {
+	public Iterable<Owner> findAll() {
 		// TODO Auto-generated method stub
 		return ownerRepository.findAll();
 	}
